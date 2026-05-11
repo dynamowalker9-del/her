@@ -11,26 +11,30 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import sheIsEverythingPhoto from "./assets/she-is-everything.jpeg";
+import memoryOnePhoto from "./assets/memory-1.jpeg";
+import memoryTwoPhoto from "./assets/memory-2.jpeg";
+import ourSong from "./assets/our-song.mp3";
 
 // ── CONFIGURATION ────────────────────────────────────────────
 const HER_NAME = "SUBHUUUUU"; // 💡 Replace with her name
 
 const TIMELINE_EVENTS = [
-  { icon: "✨", date: "The Day We Met", title: "First Hello", desc: "I still remember the way you smiled. The whole world paused for a second." },
+  { icon: "✨", date: "The Day We Met", title: "First Hello", desc: "I still remember the first text message from you like you first texted me and i was likeee what but that was one of the best thing happen to me" },
   { icon: "🌙", date: "Our First Late Night", title: "3AM Conversations", desc: "We talked about everything and nothing. I knew then you were different." },
-  { icon: "☕", date: "Our First Coffee", title: "Just Us Two", desc: "That tiny café where time felt like it belonged only to us." },
-  { icon: "🎵", date: "That One Night", title: "The Song We Shared", desc: "You played me a song and I haven't been able to forget it since." },
-  { icon: "🌸", date: "A Random Tuesday", title: "You Made It Special", desc: "You have this gift — making ordinary moments feel like magic." },
-  { icon: "💔", date: "The Fight", title: "Where I Failed You", desc: "I was wrong. I was cold. You deserved so much better from me." },
+  { icon: "🍦", date: "Our First Ice Cream Date", title: "Just Us Two", desc: "That tiny café where time felt like it belonged only to us." },
+  { icon: "🤝", date: "The First Touch of Yours", title: "When You Held My Hand", desc: "Ya just like the first message , here also you are the one who took the first step. That day I was nervous and you hold my hand , I was scared that what you will think of me....BUT... again you took the chance and comforted me ." },
+  { icon: "🌸", date: "A Random Day", title: "You Made It Special", desc: "You have this gift — making ordinary moments feel like magic." },
+  { icon: "💔", date: "The Fight", title: "Where I Failed You", desc: "I usually talk and share so much, while you share a little less. So when you finally tried to say something that day, I should have listened with my whole heart. Instead, I ignored it, and I understand why that hurt you so much. You deserved my attention, my patience, and my care in that moment." },
 ];
 
 const CONFESSIONS = [
-  { front: "I'm Sorry", back: "I should have listened more. Every word you said mattered — I just wasn't present enough to show you that." },
-  { front: "You Were Right", back: "About almost everything. I was stubborn and proud when I should have been humble and gentle with you." },
-  { front: "I Was Rude", back: "There's no excuse. The way I spoke to you was wrong. You never deserved that tone from me — not even once." },
-  { front: "You Matter", back: "More than I've ever properly told you. Your presence in my life is something I am deeply, genuinely grateful for." },
-  { front: "I Miss You", back: "Even when you're near. After what happened, I miss the version of us that existed before I hurt you." },
-  { front: "I Regret It", back: "Every sharp word. Every moment I didn't stop to truly hear you. I'd take it all back in a heartbeat." },
+  { front: "I Should Have Listened", back: "You do not open up as easily as I do, so when you finally tried to share something, I should have treated it like something delicate. I should have put everything aside and listened to you with my whole heart." },
+  { front: "Your Words Matter", back: "Even when you say only a little, it means a lot. I am sorry for making you feel like your words could be ignored, because your thoughts, your feelings, and your silence all matter to me." },
+  { front: "I Talk Too Much Sometimes", back: "I know I can fill the space with my own stories and feelings. But love is not only speaking, it is knowing when to stop, look at you, and make room for what your heart is trying to say." },
+  { front: "I Hurt You There", back: "That day, you were trying to tell me something, and I failed you in a small moment that was actually big. I understand why it hurt, because being ignored by someone you care about feels lonely." },
+  { front: "You Deserved Patience", back: "You deserved softness from me. You deserved the kind of patience that makes you feel safe enough to speak again, not the kind of carelessness that makes you regret opening up." },
+  { front: "I Will Do Better", back: "I do not want this apology to be only pretty words. I want to become someone who notices when you are trying, listens when you speak, and never makes your heart feel alone beside me." },
 ];
 
 const FLOATING_NOTES = [
@@ -139,7 +143,7 @@ const GlobalStyles = () => (
 
     .flip-card { perspective: 1000px; cursor: pointer; }
     .flip-card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.7s cubic-bezier(0.4,0,0.2,1); transform-style: preserve-3d; }
-    .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+    .flip-card-inner.flipped { transform: rotateY(180deg); }
     .flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 16px; display: flex; align-items: center; justify-content: center; padding: 24px; }
     .flip-card-back { transform: rotateY(180deg); }
 
@@ -524,7 +528,7 @@ const ApologySection = () => {
 
 // ── HER BEAUTY SECTION ───────────────────────────────────────
 const HerBeautySection = () => {
-  const [photo, setPhoto] = useState(null);
+  const [photo, setPhoto] = useState(sheIsEverythingPhoto);
   const fileRef = useRef();
 
   const handlePhoto = (e) => {
@@ -539,6 +543,7 @@ const HerBeautySection = () => {
     { icon: "🎵", label: "Her Laugh", desc: "The most beautiful sound. Completely unfiltered, completely her. I'd do a lot to hear it every single day." },
     { icon: "💫", label: "Her Presence", desc: "When she enters a room, everything shifts slightly. The energy softens. People smile a little easier. She doesn't know she does this." },
     { icon: "🌿", label: "Her Soul", desc: "Thoughtful, layered, wonderfully complex. She feels everything deeply and loves even deeper. She is extraordinary." },
+    { icon: "🙏", label: "She Is Devi", desc: "She is everything, a beautiful cute devi for me. She is my protector, my guider, my backbone, and a support for me." },
   ];
 
   return (
@@ -630,7 +635,10 @@ const HerBeautySection = () => {
 
 // ── MEMORIES GALLERY ─────────────────────────────────────────
 const MemoriesGallery = () => {
-  const [photos, setPhotos] = useState([]);
+  const [photos, setPhotos] = useState([
+    { id: "memory-1", url: memoryOnePhoto, caption: "A memory I hold close" },
+    { id: "memory-2", url: memoryTwoPhoto, caption: "Another moment I never want to lose" },
+  ]);
   const [lightbox, setLightbox] = useState(null);
   const fileRef = useRef();
 
@@ -935,14 +943,14 @@ const ThingsNeverSaid = () => {
 // ── MUSIC PLAYER ─────────────────────────────────────────────
 const MusicPlayer = () => {
   const [tracks, setTracks] = useState([
-    // 💡 Replace with your songs. Add name + url or upload.
-    { name: "Our Song — Placeholder", url: null },
+    { name: "Play it here", url: ourSong },
   ]);
   const [current, setCurrent] = useState(0);
   const [playing, setPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const audioRef = useRef(null);
   const fileRef = useRef();
+  const hasAutoPlayedRef = useRef(false);
 
   const handleUpload = (e) => {
     const files = Array.from(e.target.files || []);
@@ -963,6 +971,35 @@ const MusicPlayer = () => {
     const onTime = () => setProgress(a.duration ? (a.currentTime / a.duration) * 100 : 0);
     a.addEventListener("timeupdate", onTime);
     return () => a.removeEventListener("timeupdate", onTime);
+  }, []);
+
+  useEffect(() => {
+    const playOnFirstScroll = () => {
+      const a = audioRef.current;
+      if (hasAutoPlayedRef.current || !a?.src || window.scrollY < 8) return;
+
+      a.play()
+        .then(() => {
+          hasAutoPlayedRef.current = true;
+          setPlaying(true);
+          window.removeEventListener("scroll", playOnFirstScroll);
+          window.removeEventListener("wheel", playOnFirstScroll);
+          window.removeEventListener("touchmove", playOnFirstScroll);
+        })
+        .catch(() => {
+          // Some browsers still require a direct tap; the play button remains as fallback.
+        });
+    };
+
+    window.addEventListener("scroll", playOnFirstScroll, { passive: true });
+    window.addEventListener("wheel", playOnFirstScroll, { passive: true });
+    window.addEventListener("touchmove", playOnFirstScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", playOnFirstScroll);
+      window.removeEventListener("wheel", playOnFirstScroll);
+      window.removeEventListener("touchmove", playOnFirstScroll);
+    };
   }, []);
 
   const seek = (e) => {
